@@ -32,3 +32,19 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.dwlt
+ProjectSettings/ProjectVersion.txt
+ProjectSettings/boot.config
+ProjectSettings/ProjectSettings.asset
+ProjectSettings/PresetManager.asset
+ProjectSettings/PackageManagerSettings.asset
+ProjectSettings/MemorySettings.asset
+Packages/packages-lock.json
+Packages/manifest.json
+*.log
+*.meta
+ProjectSettings/VersionControlSettings.asset
+ProjectSettings/VFXManager.asset
+ProjectSettings/ProjectSettings.asset
+UserSettings/EditorUserSettings.asset
+ProjectSettings/ProjectVersion.txt
