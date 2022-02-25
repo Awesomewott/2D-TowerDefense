@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : Singleton<SoundManager> {
+public class SoundManager : MonoBehaviour {
 
     [SerializeField]
     private AudioClip arrow;

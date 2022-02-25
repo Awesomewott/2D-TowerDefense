@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour {
     private Animator anim;
     private float navigationTime = 0;
     private bool isDead = false;
+    private GameManager gameMan;
+    private SoundManager soundMan;
 
     public bool IsDead
     {
@@ -33,7 +35,9 @@ public class Enemy : MonoBehaviour {
         enemy = GetComponent<Transform>();
         enemyCollider = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
-        GameManager.Instance.RegisterEnemy(this);
+        gameMan = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
+        soundMan = GameObject.FindGameObjectWithTag("soundManager").GetComponent<SoundManager>();
+        gameMan.RegisterEnemy(this);
 	}
 	
 	// Update is called once per frame
@@ -68,25 +72,25 @@ public class Enemy : MonoBehaviour {
             target += 1;
         else if (collider2D.tag == "Finish")
         {
-            GameManager.Instance.RoundEscaped += 1;
-            GameManager.Instance.TotalEscape += 1;
-            GameManager.Instance.UnregisterEnemy(this);
-            GameManager.Instance.isWaveOver();
+            gameMan.RoundEscaped += 1;
+            gameMan.TotalEscape += 1;
+            gameMan.UnregisterEnemy(this);
+            gameMan.isWaveOver();
         }
         else if(collider2D.tag == "projectile")
         {
-            Projectile newP = collider2D.gameObject.GetComponent<Projectile>();
-            enemyHit(newP.AttackStrength);
+            enemyHit(collider2D.gameObject.GetComponent<Projectile>().AttackStrength);
             Destroy(collider2D.gameObject);
         }
     }
     public void enemyHit(int hitPoints)
     {
-        if(healthPoints - hitPoints > 0)
+        healthPoints -= hitPoints;
+        gameMan.AudioSource.PlayOneShot(soundMan.Hit);
+
+        if(healthPoints > 0)
         {
-            healthPoints -= hitPoints;
             anim.Play("Hurt");
-            GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Hit);
         }
         else
         {
@@ -99,9 +103,9 @@ public class Enemy : MonoBehaviour {
     {
         isDead = true;
         enemyCollider.enabled = false;
-        GameManager.Instance.TotalKilled += 1;
-        GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Death);
-        GameManager.Instance.AddMoney(rewardAmount);
-        GameManager.Instance.isWaveOver();
+        gameMan.TotalKilled += 1;
+        gameMan.AudioSource.PlayOneShot(soundMan.Death);
+        gameMan.AddMoney(rewardAmount);
+        gameMan.isWaveOver();
     }
 }

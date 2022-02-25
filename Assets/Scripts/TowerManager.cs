@@ -2,12 +2,14 @@
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-public class TowerManager : Singleton<TowerManager> {
+public class TowerManager : MonoBehaviour {
     public TowerButton towerButtonPressed { get; set; }
     private SpriteRenderer spriteRenderer;  //Setting image to our tower
     private List<Tower> TowerList = new List<Tower>();
     private List<Collider2D> BuildList = new List<Collider2D>();
     private Collider2D buildTile;
+    public GameManager gameMan;
+    public SoundManager soundMan;
 
 	// Use this for initialization
 	void Start () {
@@ -85,19 +87,19 @@ public class TowerManager : Singleton<TowerManager> {
             Tower newTower = Instantiate(towerButtonPressed.TowerObject);
             newTower.transform.position = hit.transform.position;
             buyTower(towerButtonPressed.TowerPrice);
-            GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.TowerBuilt);
+            gameMan.AudioSource.PlayOneShot(soundMan.TowerBuilt);
             RegisterTower(newTower);
             disableDragSprite();
         }
     }
     public void buyTower(int price)
     {
-        GameManager.Instance.SubtractMoney(price);
+        gameMan.SubtractMoney(price);
 
     }
     public void selectedTower(TowerButton towerSelected)
     {
-        if(towerSelected.TowerPrice <= GameManager.Instance.TotalMoney)
+        if(towerSelected.TowerPrice <= gameMan.TotalMoney)
         {
             towerButtonPressed = towerSelected;
             enableDragSprite(towerSelected.DragSprite);

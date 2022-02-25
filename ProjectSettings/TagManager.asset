@@ -10,6 +10,9 @@ TagManager:
   - ground
   - buildSiteFull
   - projectile
+  - gameManager
+  - soundManager
+  - towerManager
   layers:
   - Default
   - TransparentFX

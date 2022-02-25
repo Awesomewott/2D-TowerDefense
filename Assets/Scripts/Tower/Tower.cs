@@ -13,11 +13,15 @@ public class Tower : MonoBehaviour {
     private Enemy targetEnemy = null;
     private float attackCounter;
     private bool isAttacking = false;
+    private GameManager gameMan;
+    private SoundManager soundMan;
 
 	// Use this for initialization
-	void Start () {
-		
-	}
+	void Start ()
+    {
+        gameMan = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
+        soundMan = GameObject.FindGameObjectWithTag("soundManager").GetComponent<SoundManager>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -63,13 +67,13 @@ public class Tower : MonoBehaviour {
 
         if(newProjectile.ProjectileType == ProjectileType.arrow)
         {
-            GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Arrow);
+            gameMan.AudioSource.PlayOneShot(soundMan.Arrow);
         } else if(newProjectile.ProjectileType == ProjectileType.fireball)
         {
-            GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Fireball);
+            gameMan.AudioSource.PlayOneShot(soundMan.Fireball);
         } else if (newProjectile.ProjectileType == ProjectileType.rock)
         {
-            GameManager.Instance.AudioSource.PlayOneShot(SoundManager.Instance.Rock);
+            gameMan.AudioSource.PlayOneShot(soundMan.Rock);
         }
         //If we have a target enemy, start a coroutine to shoot projectile to target enemy
         if(targetEnemy == null)
@@ -117,7 +121,7 @@ public class Tower : MonoBehaviour {
         List<Enemy> enemiesInRange = new List<Enemy>();
 
         //Check if enemies are in range
-        foreach(Enemy enemy in GameManager.Instance.EnemyList)
+        foreach(Enemy enemy in gameMan.EnemyList)
         {
             if(Vector2.Distance(transform.localPosition, enemy.transform.localPosition) <= attackRange && !enemy.IsDead)
             {

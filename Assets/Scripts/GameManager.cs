@@ -7,19 +7,11 @@ public enum gameStatus
 {
     next, play, gameover, win
 }
-public class GameManager : Singleton<GameManager> {
+public class GameManager : MonoBehaviour {
     //SerializeField - Allows Inspector to get access to private fields.
     //If we want to get access to this from another class, we'll just need to make public getters
     [SerializeField]
     private int totalWaves = 10;
-    [SerializeField]
-    private Text totalMoneyLabel;   //Refers to money label at upper left corner
-    [SerializeField]
-    private Text currentWaveLabel;
-    [SerializeField]
-    private Text totalEscapedLabel;
-    [SerializeField]
-    private GameObject spawnPoint;
     [SerializeField]
     private Enemy[] enemies;
     [SerializeField]
@@ -27,9 +19,13 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField]
     private int enemiesPerSpawn;
     [SerializeField]
-    private Text playButtonLabel;
-    [SerializeField]
     private Button playButton;
+
+    public Text totalMoneyLabel;   //Refers to money label at upper left corner
+    public Text currentWaveLabel;
+    public Text totalEscapedLabel;
+    public GameObject spawnPoint;
+    public Text playButtonLabel;
 
     private int waveNumber = 0;
     private int totalMoney = 10;
@@ -40,6 +36,8 @@ public class GameManager : Singleton<GameManager> {
     private int enemiesToSpawn = 0;
     private gameStatus currentState = gameStatus.play;
     private AudioSource audioSource;
+    public TowerManager towerMan;
+    public SoundManager soundMan;
 
     public List<Enemy> EnemyList = new List<Enemy>();
     const float spawnDelay = 2f; //Spawn Delay in seconds
@@ -177,7 +175,7 @@ public class GameManager : Singleton<GameManager> {
         {
             case gameStatus.gameover:
                 playButtonLabel.text = "Play Again!";
-                AudioSource.PlayOneShot(SoundManager.Instance.Gameover);
+                AudioSource.PlayOneShot(soundMan.Gameover);
                 break;
             case gameStatus.next:
                 playButtonLabel.text = "Next Wave";
@@ -204,11 +202,11 @@ public class GameManager : Singleton<GameManager> {
                 totalEnemies = 3;
                 totalEscaped = 0;
                 TotalMoney = 10;
-                TowerManager.Instance.DestroyAllTower();
-                TowerManager.Instance.RenameTagsBuildSites();
+                towerMan.DestroyAllTower();
+                towerMan.RenameTagsBuildSites();
                 totalMoneyLabel.text = TotalMoney.ToString();
                 totalEscapedLabel.text = "Escaped " + totalEscaped + "/10";
-                AudioSource.PlayOneShot(SoundManager.Instance.NewGame);
+                AudioSource.PlayOneShot(soundMan.NewGame);
                 break;
         }
         DestroyAllEnemies();
@@ -222,8 +220,8 @@ public class GameManager : Singleton<GameManager> {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TowerManager.Instance.disableDragSprite();
-            TowerManager.Instance.towerButtonPressed = null;
+            towerMan.disableDragSprite();
+            towerMan.towerButtonPressed = null;
         }
     }
 
