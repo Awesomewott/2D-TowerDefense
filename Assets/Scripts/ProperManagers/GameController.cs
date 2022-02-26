@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     [Space]
 
     public GameObject titleScreen;
+    public GameObject levelSelectScreen;
     public GameObject gameOverScreen;
     public GameObject optionsScreen;
     public GameObject instructionsScreen;
@@ -91,6 +92,16 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void OnQuit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    #region Game
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && state == MenuState.Game)
@@ -120,7 +131,7 @@ public class GameController : MonoBehaviour
         }
 
         if (backgroundImage != null) backgroundImage.SetActive(false);
-        titleScreen.SetActive(false);
+        levelSelectScreen.SetActive(false);
         SceneManager.LoadScene(scene);
         state = MenuState.Game;
         if (transition != null)
@@ -148,7 +159,7 @@ public class GameController : MonoBehaviour
         }
 
         if (backgroundImage != null) backgroundImage.SetActive(false);
-        titleScreen.SetActive(false);
+        levelSelectScreen.SetActive(false);
         SceneManager.LoadScene(scene);
         state = MenuState.Game;
         if (transition != null)
@@ -160,6 +171,7 @@ public class GameController : MonoBehaviour
 
         yield return null;
     }
+    #endregion
 
     #region Menu Navigation
     public void OnLoadMenuScene(string scene)
@@ -195,10 +207,17 @@ public class GameController : MonoBehaviour
     public void OnTitleScreen()
     {
         titleScreen.SetActive(true);
+        levelSelectScreen.SetActive(false);
         gameOverScreen.SetActive(false);
         optionsScreen.SetActive(false);
         instructionsScreen.SetActive(false);
         creditsScreen.SetActive(false);
+    }
+
+    public void OnLevelSelectScreen()
+    {
+        titleScreen.SetActive(false);
+        levelSelectScreen.SetActive(true);
     }
 
     public void OnOptionsScreen()
@@ -242,38 +261,33 @@ public class GameController : MonoBehaviour
     }
     #endregion
 
-    public void OnQuit()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
-    }
-
     #region Audio
     public void OnMasterVolume(float level)
     {
         audioMixer.SetFloat("MasterVolume", level);
         PlayerPrefs.SetFloat("MasterVolume", level);
+        foreach (var slider in masterSliders) slider.value = level;
     }
 
     public void OnMusicVolume(float level)
     {
         audioMixer.SetFloat("MusicVolume", level);
         PlayerPrefs.SetFloat("MusicVolume", level);
+        foreach (var slider in musicSliders) slider.value = level;
     }
 
     public void OnSFXVolume(float level)
     {
         audioMixer.SetFloat("SFXVolume", level);
         PlayerPrefs.SetFloat("SFXVolume", level);
+        foreach (var slider in sfxSliders) slider.value = level;
     }
 
     public void OnVoiceVolume(float level)
     {
         audioMixer.SetFloat("VoiceVolume", level);
         PlayerPrefs.SetFloat("VoiceVolume", level);
+        foreach (var slider in voiceSliders) slider.value = level;
     }
     #endregion
 }
