@@ -42,8 +42,6 @@ ProjectSettings/MemorySettings.asset
 Packages/packages-lock.json
 Packages/manifest.json
 *.log
-*.meta
-*.png.meta
 ProjectSettings/VersionControlSettings.asset
 ProjectSettings/VFXManager.asset
 ProjectSettings/ProjectSettings.asset
