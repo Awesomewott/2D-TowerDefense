@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 48391947}
   - component: {fileID: 48391948}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: PauseVoiceSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2682,7 +2682,7 @@ GameObject:
   - component: {fileID: 294943353}
   - component: {fileID: 294943354}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: PauseMusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2861,7 +2861,7 @@ GameObject:
   - component: {fileID: 341008540}
   - component: {fileID: 341008541}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: PauseSFXSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3127,7 +3127,7 @@ GameObject:
   - component: {fileID: 404545895}
   - component: {fileID: 404545896}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: OptionsVoiceSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3878,7 +3878,7 @@ GameObject:
   - component: {fileID: 492349673}
   - component: {fileID: 492349674}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: PauseMasterSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5063,7 +5063,7 @@ GameObject:
   - component: {fileID: 680293784}
   - component: {fileID: 680293785}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: OptionsSFXSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6419,7 +6419,7 @@ GameObject:
   - component: {fileID: 931172780}
   - component: {fileID: 931172781}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: OptionsMasterSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12782,7 +12782,7 @@ GameObject:
   - component: {fileID: 2143697860}
   - component: {fileID: 2143697861}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: OptionsMusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
