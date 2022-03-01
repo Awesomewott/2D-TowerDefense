@@ -318,8 +318,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -871,7 +871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b29e1daaffbde4680f8b499ba9d1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowSwitchOff: 0
 --- !u!1 &87464816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,8 +2044,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Options
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4631,8 +4630,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4900,8 +4899,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Instructions
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5636,8 +5635,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Credits
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7585,10 +7584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dee5fac20266894380ffe4a082a7761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 1340812501}
-  time: 1
-  color: {r: 0, g: 0, b: 0, a: 0}
-  startOnAwake: 1
 --- !u!114 &1169786615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7601,31 +7596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84730698f053efb4982f8285b34529ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleScreen: {fileID: 1774089115}
-  levelSelectScreen: {fileID: 1473667940}
-  gameOverScreen: {fileID: 1462213441}
-  optionsScreen: {fileID: 352245301}
-  instructionsScreen: {fileID: 890382546}
-  creditsScreen: {fileID: 1496937745}
-  pauseScreen: {fileID: 883046984}
-  backgroundImage: {fileID: 1666277573}
-  transition: {fileID: 1169786614}
-  audioMixer: {fileID: 24100000, guid: ec5ff5253785b7a40b0d531b199b1126, type: 2}
-  masterSliders:
-  - {fileID: 931172781}
-  - {fileID: 492349674}
-  musicSliders:
-  - {fileID: 2143697861}
-  - {fileID: 294943354}
-  sfxSliders:
-  - {fileID: 680293785}
-  - {fileID: 341008541}
-  voiceSliders:
-  - {fileID: 404545896}
-  - {fileID: 48391948}
-  highScore: 0
-  timeScale: 0
-  state: 0
 --- !u!4 &1169786616
 Transform:
   m_ObjectHideFlags: 0
@@ -8456,7 +8426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1340812498
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10907,8 +10877,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tower Defense
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 127ec3c7af77de740b35b607762fceed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
