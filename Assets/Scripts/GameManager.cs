@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 
     private int waveNumber = 0;
     private int totalMoney = 10;
-    private int totalEscaped = 0;
+    public int totalEscaped = 0;
     private int roundEscaped = 0;
     private int totalKilled = 0;
     private int whichEnemiesToSpawn = 0;
@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour {
     private AudioSource audioSource;
     public TowerManager towerMan;
     public SoundManager soundMan;
+    public GameObject GOPanel;
 
     public List<Enemy> EnemyList = new List<Enemy>();
     const float spawnDelay = 2f; //Spawn Delay in seconds
@@ -78,13 +79,15 @@ public class GameManager : MonoBehaviour {
     void Start () {
         playButton.gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
+        GOPanel.SetActive(false);
         ShowMenu();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         handleEscape();
-	}
+        
+  }
 
     //This will spawn enemies, wait for the given spawnDelay then call itself again to spawn another enemy
     IEnumerator spawn()
@@ -138,6 +141,7 @@ public class GameManager : MonoBehaviour {
     public void isWaveOver()
     {
         totalEscapedLabel.text = "Escaped " + TotalEscape + "/10";
+
         if (RoundEscaped + TotalKilled == totalEnemies)
         {
             if(waveNumber <= enemies.Length)
@@ -147,7 +151,12 @@ public class GameManager : MonoBehaviour {
             setCurrentGameState();
             ShowMenu();
         }
-    }
+        else if (totalEscaped >= 10) 
+        {
+          setCurrentGameState();
+          ShowMenu();
+        }
+  }
 
     public void setCurrentGameState()
     {
@@ -176,6 +185,7 @@ public class GameManager : MonoBehaviour {
             case gameStatus.gameover:
                 playButtonLabel.text = "Play Again!";
                 AudioSource.PlayOneShot(soundMan.Gameover);
+                GOPanel.SetActive(true);
                 break;
             case gameStatus.next:
                 playButtonLabel.text = "Next Wave";
