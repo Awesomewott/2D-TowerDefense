@@ -14850,6 +14850,11 @@ PrefabInstance:
       objectReference: {fileID: 1808592723}
     - target: {fileID: 114940464925426330, guid: e7b4b333ef914364c88f727c141decb6,
         type: 3}
+      propertyPath: totalWaves
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 114940464925426330, guid: e7b4b333ef914364c88f727c141decb6,
+        type: 3}
       propertyPath: playButtonLabel
       value: 
       objectReference: {fileID: 145974714}

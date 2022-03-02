@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour {
     public GameObject spawnPoint;
     public Text playButtonLabel;
 
-    private int waveNumber = 0;
-    private int totalMoney = 10;
+    public int waveNumber = 0;
+    public int totalMoney = 20;
     public int totalEscaped = 0;
     private int roundEscaped = 0;
     private int totalKilled = 0;
@@ -80,8 +80,10 @@ public class GameManager : MonoBehaviour {
         playButton.gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
         GOPanel.SetActive(false);
+        //Time.timeScale = 3;
         ShowMenu();
-	}
+	   }
+
 	
 	// Update is called once per frame
 	void Update () {
