@@ -13,6 +13,8 @@ TagManager:
   - gameManager
   - soundManager
   - towerManager
+  - PlayButton
+  - firstCheckpoint
   layers:
   - Default
   - TransparentFX

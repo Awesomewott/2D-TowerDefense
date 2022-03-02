@@ -46,7 +46,6 @@ public class GameSession : MonoBehaviour
                 State = eState.StartSession;
                 break;
             case eState.StartSession:
-                if (GameController.Instance != null && GameController.Instance.transition != null) GameController.Instance.transition.StartTransition(Color.clear, 1);
                 State = eState.Session;
                 break;
             case eState.Session:
