@@ -14,6 +14,11 @@ GameObject:
   - component: {fileID: 50781764936643274}
   - component: {fileID: 61884990487062726}
   - component: {fileID: 114833652801850606}
+  - component: {fileID: -5796631146419163332}
+  - component: {fileID: 7214802711365170403}
+  - component: {fileID: 7444489253103792484}
+  - component: {fileID: 2831102942122709803}
+  - component: {fileID: 3303761352953692563}
   m_Layer: 8
   m_Name: Enemy1
   m_TagString: enemy
@@ -167,15 +172,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a5d0375883c6b45be1417cd92cc8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitPoint: {fileID: 4720272048227822, guid: b6838dc004fddeb46a03479b574b7478, type: 3}
-  wayPoints:
-  - {fileID: 4550925125046584, guid: 7c2de2e0f03a9bf43a079e76dbd55e4b, type: 3}
-  - {fileID: 4422536163880656, guid: 7c2de2e0f03a9bf43a079e76dbd55e4b, type: 3}
-  - {fileID: 4179711284755412, guid: 7c2de2e0f03a9bf43a079e76dbd55e4b, type: 3}
-  - {fileID: 4007198553218332, guid: 7c2de2e0f03a9bf43a079e76dbd55e4b, type: 3}
-  - {fileID: 4170128799797842, guid: 7c2de2e0f03a9bf43a079e76dbd55e4b, type: 3}
-  - {fileID: 4767935805722302, guid: 7c2de2e0f03a9bf43a079e76dbd55e4b, type: 3}
-  - {fileID: 4290210466860504, guid: 7c2de2e0f03a9bf43a079e76dbd55e4b, type: 3}
-  navigationUpdate: 0.01
   healthPoints: 50
   rewardAmount: 3
+--- !u!114 &-5796631146419163332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342872817362604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e142ffbd4409541b5f92c8eb8b9171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialNode: {fileID: 0}
+--- !u!114 &7214802711365170403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342872817362604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e833dd674cdea945a1a170ede8ddcc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 2831102942122709803}
+  animator: {fileID: 95599212351062588}
+--- !u!114 &7444489253103792484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342872817362604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c4fa850c83efa4b9980f364ae998c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialState: {fileID: 3303761352953692563}
+--- !u!114 &2831102942122709803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342872817362604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530c909b64ada2448b2f35ab45ce439d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMax: 1
+  accelerationMax: 9000
+  turnRate: 9000
+  orientToMovement: 0
+--- !u!114 &3303761352953692563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342872817362604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcbb7c567e41ad48bf3753806c9dfcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
