@@ -5,10 +5,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
     //SerializeField - Allows Inspector to get access to private fields.
     //If we want to get access to this from another class, we'll just need to make public getters
-    [SerializeField]
-    private int healthPoints;
+    
+    public int healthPoints;
+    public int maxHealth;
     [SerializeField]
     private int rewardAmount;
+
+    public HealthBarBeahaviour healthBar;
 
     private Collider2D enemyCollider;
     private Animator anim;
@@ -29,6 +32,8 @@ public class Enemy : MonoBehaviour {
         gameMan = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
         soundMan = GameObject.FindGameObjectWithTag("soundManager").GetComponent<SoundManager>();
         gameMan.RegisterEnemy(this);
+        maxHealth = healthPoints;
+        healthBar.SetHealth(healthPoints, maxHealth);
 	}
 
     //If we trigger the collider2D.tag for checkpoints for finish. 
@@ -52,8 +57,8 @@ public class Enemy : MonoBehaviour {
     public void enemyHit(int hitPoints)
     {
         healthPoints -= hitPoints;
+        healthBar.SetHealth(healthPoints, maxHealth);
         gameMan.AudioSource.PlayOneShot(soundMan.Hit);
-
         if(healthPoints > 0)
         {
             anim.Play("Hurt");

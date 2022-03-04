@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 48391947}
   - component: {fileID: 48391948}
   m_Layer: 0
-  m_Name: PauseVoiceSlider
+  m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2682,7 +2682,7 @@ GameObject:
   - component: {fileID: 294943353}
   - component: {fileID: 294943354}
   m_Layer: 0
-  m_Name: PauseMusicSlider
+  m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2861,7 +2861,7 @@ GameObject:
   - component: {fileID: 341008540}
   - component: {fileID: 341008541}
   m_Layer: 0
-  m_Name: PauseSFXSlider
+  m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3127,7 +3127,7 @@ GameObject:
   - component: {fileID: 404545895}
   - component: {fileID: 404545896}
   m_Layer: 0
-  m_Name: OptionsVoiceSlider
+  m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3878,7 +3878,7 @@ GameObject:
   - component: {fileID: 492349673}
   - component: {fileID: 492349674}
   m_Layer: 0
-  m_Name: PauseMasterSlider
+  m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5063,7 +5063,7 @@ GameObject:
   - component: {fileID: 680293784}
   - component: {fileID: 680293785}
   m_Layer: 0
-  m_Name: OptionsSFXSlider
+  m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6419,7 +6419,7 @@ GameObject:
   - component: {fileID: 931172780}
   - component: {fileID: 931172781}
   m_Layer: 0
-  m_Name: OptionsMasterSlider
+  m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7611,18 +7611,10 @@ MonoBehaviour:
   backgroundImage: {fileID: 1666277573}
   transition: {fileID: 1169786614}
   audioMixer: {fileID: 24100000, guid: ec5ff5253785b7a40b0d531b199b1126, type: 2}
-  masterSliders:
-  - {fileID: 931172781}
-  - {fileID: 492349674}
-  musicSliders:
-  - {fileID: 2143697861}
-  - {fileID: 294943354}
-  sfxSliders:
-  - {fileID: 680293785}
-  - {fileID: 341008541}
-  voiceSliders:
-  - {fileID: 404545896}
-  - {fileID: 48391948}
+  masterSliders: []
+  musicSliders: []
+  sfxSliders: []
+  voiceSliders: []
   highScore: 0
   timeScale: 0
   state: 0
@@ -8456,7 +8448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1340812498
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12782,7 +12774,7 @@ GameObject:
   - component: {fileID: 2143697860}
   - component: {fileID: 2143697861}
   m_Layer: 0
-  m_Name: OptionsMusicSlider
+  m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
