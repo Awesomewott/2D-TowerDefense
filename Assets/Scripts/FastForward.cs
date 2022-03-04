@@ -9,7 +9,12 @@ public class FastForward : MonoBehaviour
     public bool isFF = false;
     public Image btnImage;
     public TMP_Text btnText;
-    
+
+
+    private void Start() 
+    {
+      Time.timeScale = 1;
+    }
     public void GoGoSpeed() 
     {
       if (!isFF) 
