@@ -15,7 +15,7 @@ public class TowerManager : MonoBehaviour {
 	void Start () {
         spriteRenderer = GetComponent<SpriteRenderer>();
         buildTile = GetComponent<Collider2D>();
-        spriteRenderer.enabled = false;
+        if (spriteRenderer != null) spriteRenderer.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -44,7 +44,7 @@ public class TowerManager : MonoBehaviour {
         }
 
         //When we have a sprite enabled, have it follow the mouse (I.E - Placing a Tower)
-        if (spriteRenderer.enabled)
+        if (spriteRenderer != null && spriteRenderer.enabled)
         {
             followMouse();
         }
