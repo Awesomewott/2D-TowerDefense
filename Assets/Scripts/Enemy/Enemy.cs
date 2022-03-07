@@ -50,7 +50,10 @@ public class Enemy : MonoBehaviour {
         }
         else if(collider2D.tag == "projectile")
         {
-            enemyHit(collider2D.gameObject.GetComponent<Projectile>().AttackStrength);
+            if (!isDead)
+            {
+                enemyHit(collider2D.gameObject.GetComponent<Projectile>().AttackStrength);
+            }
             Destroy(collider2D.gameObject);
         }
     }

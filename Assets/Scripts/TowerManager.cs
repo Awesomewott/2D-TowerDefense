@@ -33,8 +33,8 @@ public class TowerManager : MonoBehaviour {
             RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
 
             //Check to see if mouse press location is on buildSites
-            
-            if(hit.collider.tag == "buildSite")
+
+            if (hit.collider.tag == "buildSite" && towerButtonPressed != null)
             {
                 buildTile = hit.collider;
                 buildTile.tag = "buildSiteFull";     //This prevents us from stacking towers ontop of each other.
@@ -82,7 +82,7 @@ public class TowerManager : MonoBehaviour {
     {
         //If the pointer is not over the Tower Button GameObject && the tower button has been pressed
         //Created new tower at the click location
-        if (!EventSystem.current.IsPointerOverGameObject() && towerButtonPressed != null)
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
             Tower newTower = Instantiate(towerButtonPressed.TowerObject);
             newTower.transform.position = hit.transform.position;
@@ -90,6 +90,7 @@ public class TowerManager : MonoBehaviour {
             gameMan.AudioSource.PlayOneShot(soundMan.TowerBuilt);
             RegisterTower(newTower);
             disableDragSprite();
+            towerButtonPressed = null;
         }
     }
     public void buyTower(int price)
@@ -99,7 +100,7 @@ public class TowerManager : MonoBehaviour {
     }
     public void selectedTower(TowerButton towerSelected)
     {
-        if(towerSelected.TowerPrice <= gameMan.TotalMoney)
+        if(gameMan.TotalMoney - towerSelected.TowerPrice >= 0)
         {
             towerButtonPressed = towerSelected;
             enableDragSprite(towerSelected.DragSprite);

@@ -123,6 +123,10 @@ public class GameManager : MonoBehaviour {
     ///Destroy - At the end of the wave
     public void DestroyAllEnemies()
     {
+        foreach(var pro in GameObject.FindGameObjectsWithTag("projectile"))
+        {
+            Destroy(pro);
+        }
         foreach(Enemy enemy in EnemyList)
         {
             Destroy(enemy.gameObject);
