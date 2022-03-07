@@ -176,7 +176,7 @@ MonoBehaviour:
   healthPoints: 100
   maxHealth: 0
   rewardAmount: 5
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 2649064757671593352}
 --- !u!114 &7884997326902200798
 MonoBehaviour:
   m_ObjectHideFlags: 0
