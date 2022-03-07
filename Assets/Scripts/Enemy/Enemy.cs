@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour {
         {
             gameMan.RoundEscaped += 1;
             gameMan.TotalEscape += 1;
-            gameMan.UnregisterEnemy(this);
+            //gameMan.UnregisterEnemy(this);
             gameMan.isWaveOver();
         }
         else if(collider2D.tag == "projectile")

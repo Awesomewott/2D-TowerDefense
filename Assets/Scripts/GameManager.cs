@@ -150,8 +150,11 @@ public class GameManager : MonoBehaviour {
             {
                 enemiesToSpawn = waveNumber;
             }
+            
+            
             setCurrentGameState();
             ShowMenu();
+            
         }
         else if (totalEscaped >= 10) 
         {
