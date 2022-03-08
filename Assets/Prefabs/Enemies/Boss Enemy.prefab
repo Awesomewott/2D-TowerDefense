@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 2831102942122709803}
   - component: {fileID: 3303761352953692563}
   m_Layer: 8
-  m_Name: Enemy1 1
+  m_Name: Boss Enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342872817362604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.99, y: -2.5, z: -0.025390625}
+  m_LocalPosition: {x: -7.99, y: -2.574, z: -0.025390625}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -148,7 +148,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.11900168}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -159,7 +159,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.6}
+  m_Size: {x: 0.3, y: 0.31783128}
   m_EdgeRadius: 0
 --- !u!114 &114833652801850606
 MonoBehaviour:
@@ -173,9 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a5d0375883c6b45be1417cd92cc8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 50
+  healthPoints: 200
   maxHealth: 0
-  rewardAmount: 3
+  rewardAmount: 8
   healthBar: {fileID: 6442902140036105523}
 --- !u!114 &-5796631146419163332
 MonoBehaviour:
