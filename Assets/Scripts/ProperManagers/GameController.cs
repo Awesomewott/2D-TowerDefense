@@ -70,6 +70,7 @@ public class GameController : MonoBehaviour
         OnSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 0));
         OnVoiceVolume(PlayerPrefs.GetFloat("VoiceVolume", 0));
 
+
         foreach (var slider in masterSliders)
         {
             audioMixer.GetFloat("MasterVolume", out float volume);

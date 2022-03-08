@@ -9,6 +9,7 @@ public class ChangeScene : MonoBehaviour
     
     public void ToScene() 
     {
-        SceneManager.LoadScene(sceneName);
+    GameController.Instance.OnLoadMenuScene(sceneName);
+
     }
 }
