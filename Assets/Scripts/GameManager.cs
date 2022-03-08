@@ -220,7 +220,7 @@ public class GameManager : MonoBehaviour {
             default:
                 totalEnemies = 3;
                 totalEscaped = 0;
-                TotalMoney = 10;
+                TotalMoney = 30;
                 towerMan.DestroyAllTower();
                 towerMan.RenameTagsBuildSites();
                 totalMoneyLabel.text = TotalMoney.ToString();
