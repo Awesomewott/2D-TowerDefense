@@ -25,7 +25,6 @@ public class Tower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        attackCounter -= Time.deltaTime;
         //If our closest enemy in range and if its within our attackRange, set our target enemy to the closest enemy in range.
         if (targetEnemy == null || targetEnemy.IsDead)
         {
@@ -37,10 +36,10 @@ public class Tower : MonoBehaviour {
         }
         else
         {
-            if(attackCounter <= 0f)
+            if(Time.time >= attackCounter)
             {
                 isAttacking = true;
-                attackCounter = timeBetweenAttacks; //reset attack counter
+                attackCounter = Time.time + timeBetweenAttacks; //reset attack counter
             }
             else
             {

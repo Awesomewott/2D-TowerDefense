@@ -45,12 +45,19 @@ public class Enemy : MonoBehaviour {
         {
             gameMan.RoundEscaped += 1;
             gameMan.TotalEscape += 1;
-            gameMan.UnregisterEnemy(this);
+            //gameMan.UnregisterEnemy(this);
             gameMan.isWaveOver();
         }
         else if(collider2D.tag == "projectile")
         {
-            enemyHit(collider2D.gameObject.GetComponent<Projectile>().AttackStrength);
+            if (!isDead)
+            {
+                if (collider2D.gameObject != null)
+                {
+                    var pro = collider2D.gameObject.GetComponent<Projectile>();
+                    if (pro != null) enemyHit(pro.AttackStrength);
+                }
+            }
             Destroy(collider2D.gameObject);
         }
     }
