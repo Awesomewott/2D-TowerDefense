@@ -34,7 +34,7 @@ public class TowerManager : MonoBehaviour {
 
             //Check to see if mouse press location is on buildSites
 
-            if (hit.collider.tag == "buildSite" && towerButtonPressed != null)
+            if (hit.collider != null && hit.collider.tag == "buildSite" && towerButtonPressed != null)
             {
                 buildTile = hit.collider;
                 buildTile.tag = "buildSiteFull";     //This prevents us from stacking towers ontop of each other.

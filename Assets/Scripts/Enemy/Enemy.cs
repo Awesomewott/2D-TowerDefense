@@ -52,7 +52,11 @@ public class Enemy : MonoBehaviour {
         {
             if (!isDead)
             {
-                enemyHit(collider2D.gameObject.GetComponent<Projectile>().AttackStrength);
+                if (collider2D.gameObject != null)
+                {
+                    var pro = collider2D.gameObject.GetComponent<Projectile>();
+                    if (pro != null) enemyHit(pro.AttackStrength);
+                }
             }
             Destroy(collider2D.gameObject);
         }
