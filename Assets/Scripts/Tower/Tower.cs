@@ -9,7 +9,7 @@ public class Tower : MonoBehaviour {
     [SerializeField]
     private float attackRange;          //AKA - Attack Radius
     [SerializeField]
-    private Projectile projectile;      //Type of Projectile
+    public Projectile projectile;      //Type of Projectile
     private Enemy targetEnemy = null;
     private float attackCounter;
     private bool isAttacking = false;

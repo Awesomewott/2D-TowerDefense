@@ -43,6 +43,19 @@ public class TowerManager : MonoBehaviour {
             }
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+
+            if(hit.collider != null && hit.collider.tag == "buildSiteFull")
+            {
+                buildTile = hit.collider;
+                buildTile.tag = "buildSite";
+                removeTower(hit);
+            }
+        }
+
         //When we have a sprite enabled, have it follow the mouse (I.E - Placing a Tower)
         if (spriteRenderer != null && spriteRenderer.enabled)
         {
@@ -71,9 +84,12 @@ public class TowerManager : MonoBehaviour {
 
     public void DestroyAllTower()
     {
-        foreach(Tower tower in TowerList)
+        foreach (Tower tower in TowerList)
         {
-            Destroy(tower.gameObject);
+            if (tower != null)
+            {
+                Destroy(tower.gameObject);
+            }
         }
         TowerList.Clear();
     }
@@ -93,11 +109,50 @@ public class TowerManager : MonoBehaviour {
             towerButtonPressed = null;
         }
     }
+
+    public void removeTower(RaycastHit2D hit)
+    {
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            for(int i = 0; i < TowerList.Count; i++)
+            {
+                if (TowerList[i] != null)
+                {
+                    if (TowerList[i].transform.position == hit.transform.position)
+                    {
+                        switch (TowerList[i].projectile.projectileType)
+                        {
+                            case ProjectileType.arrow:
+                                sellTower(5);
+                                break;
+                            case ProjectileType.rock:
+                                sellTower(10);
+                                break;
+                            case ProjectileType.fireball:
+                                sellTower(15);
+                                break;
+                            default:
+                                sellTower(5);
+                                break;
+                        }
+
+                        Destroy(TowerList[i].gameObject);
+                        continue;
+                    }
+                }
+            }
+        }
+    }
+
     public void buyTower(int price)
     {
         gameMan.SubtractMoney(price);
-
     }
+    public void sellTower(int price)
+    {
+        gameMan.AddMoney((int)(price / 2));
+    }
+
     public void selectedTower(TowerButton towerSelected)
     {
         if(gameMan.TotalMoney - towerSelected.TowerPrice >= 0)

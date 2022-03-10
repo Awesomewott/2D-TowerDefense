@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour {
     private int attackStrength;
 
     [SerializeField]
-    private ProjectileType projectileType;
+    public ProjectileType projectileType;
 
     public int AttackStrength
     {
